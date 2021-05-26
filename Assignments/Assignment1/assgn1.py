@@ -12,7 +12,7 @@ while(True) :
 
 
     hash = hashlib.sha256(res_x) # hash function
-    # maxx = "000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+    maxx = "000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
     tmp = hash.hexdigest() # Returns the encoded data in hexadecimal format
     hash_x = str(tmp) # Converting the hexadecimal into string
     flg = True
@@ -23,7 +23,7 @@ while(True) :
             flg = False
 
 
-    if(flg == True) : 
+    if(flg == True && hash_x!=maxx) : 
         print(f'time : {time.time()-ref}')
         print(f'res : {res}')
         # print(f'final string = "{res_x}"')
