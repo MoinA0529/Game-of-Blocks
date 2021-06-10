@@ -2,7 +2,7 @@
 
 * Open the [Remix IDE](https://remix.ethereum.org/) and create a new *.*sol* file.
 
-* Copy and Paste the code present inside *assgn2.sol* in *a2.sol* and compile the code, we will refer this file as a2.sol.
+* Copy and Paste the code present inside *assgn2.sol* in *loan.sol* and compile the code, we will refer this file as loan.sol.
 
 * Download [Ganache GUI](https://www.trufflesuite.com/ganache) on your machine. Ganache helps you to test the smart contract on a private ethereum blockchain.
 
@@ -20,7 +20,7 @@
 
 **reqLoan** -  The owner can request from other users. P,R,T will be specified by the user.
 
-**getOwnerBalance** - select an account for which you want to determine the balance
+**getOwnerBalance** - select an account for which you want to determine the balance, now click getOwnerBalance
 
 **viewDues** - call to view the money owed by the user, call will get the amount of money the user owes the account
 
