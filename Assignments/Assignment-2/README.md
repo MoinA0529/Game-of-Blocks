@@ -1,9 +1,8 @@
-
-##Assignment 2
+## Assignment 2
 
 * Open the [Remix IDE](https://remix.ethereum.org/) and create a new *.*sol* file.
 
-* Copy and Paste the code present inside *assgn2.sol* in *auction.sol* and compile the code. 
+* Copy and Paste the code present inside *assgn2.sol* in *a2.sol* and compile the code, we will refer this file as a2.sol.
 
 * Download [Ganache GUI](https://www.trufflesuite.com/ganache) on your machine. Ganache helps you to test the smart contract on a private ethereum blockchain.
 
@@ -23,8 +22,8 @@
 
 **getOwnerBalance** - select an account for which you want to determine the balance
 
-**viewDues** - call to view the money owed by the user
+**viewDues** - call to view the money owed by the user, call will get the amount of money the user owes the account
 
-**settleDues** - only account1 can access
+**settleDues** - only account1 can access, , transact will only work if there is enough balance in user's account
 
 
