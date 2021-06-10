@@ -85,13 +85,13 @@ contract Loan is MetaCoin {
     
     modifier isOwner() {
         // Implement a modifier to allow only the owner of the contract to use specific functions
-        require(msg.sender == owner, "Invalid user");
+        require(msg.sender == Owner, "Invalid user");
         _;
     }
     
     constructor() public {
-        owner = msg.sender;
-        emit OwnerSet(address(0), owner);
+        Owner = msg.sender;
+        emit OwnerSet(address(0), Owner);
     }    
     function getCompoundInterest(uint256 principle, uint rate, uint time) public pure returns(uint256) {
         uint256 tmp = principle;
