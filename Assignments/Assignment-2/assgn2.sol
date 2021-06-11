@@ -86,7 +86,7 @@ contract Loan is MetaCoin {
     modifier isOwner() {
         // Implement a modifier to allow only the owner of the contract to use specific functions
         require(msg.sender == Owner, "Invalid user");
-        _;
+        _; // a placeholder for the function that is modified
     }
     
     event set(address x, address y);
@@ -98,13 +98,13 @@ contract Loan is MetaCoin {
     function getCompoundInterest(uint256 principle, uint rate, uint time) public pure returns(uint256) {
         uint256 tmp = principle;
         for(uint i=0;i<time;i++) {
-            tmp = tmp + SafeMath.div(SafeMath.mul(tmp,rate),uint256(100)); // use divide and multiply from safe math
-        }
-        return principle-tmp;
+            tmp = SafeMath.add(tmp,SafeMath.div(SafeMath.mul(tmp,rate),uint256(100))); // use add, divide and multiply from safe math
+        } // basically iteratively computing final amount to be paid
+        return tmp-principle;
     }
     // iteratively calculating the interest to be paid by the user
 
-    function reqLoan(uint256 principle, uint rate, uint time) public returns(bool correct) {
+    function reqLoan(uint256 principle, uint rate, uint time) public isOwner returns(bool correct) { // only owner can request the loan
         uint256 toPay = principle + getCompoundInterest(principle, rate, time);
         loans[msg.sender] = toPay;
         emit Request(msg.sender, principle, rate, time, toPay);
@@ -112,7 +112,7 @@ contract Loan is MetaCoin {
     }
 
     function getOwnerBalance() public view returns(uint256) {
-        return super.getBalance(Owner);
+        return MetaCoin.getBalance(Owner);
     }
     // Using public getBalance function of the MetaCoin contract
 
